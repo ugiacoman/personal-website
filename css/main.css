@@ -99,7 +99,23 @@ p {
 	overflow: hidden;
 }
 
+#target {
+    font-family: 'Montserrat', sans-serif;
+    display: inline-block;
+	font-size: 28px;
+	color: #fff;
+	margin-bottom: 24px;
+	margin-top: 0;
+}
 
+#cursor {
+    font-family: 'Montserrat', sans-serif;
+    display: inline-block;
+	font-size: 28px;
+	color: #fff;
+	margin-bottom: 24px;
+	margin-top: 0;
+}
 
 .infoContent {
 	margin: 0 auto;
