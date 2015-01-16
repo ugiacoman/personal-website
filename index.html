@@ -4,8 +4,7 @@
    <link href='http://fonts.googleapis.com/css?family=Lato:100,400,700,900' rel='stylesheet' type='text/css'>
    <link rel="stylesheet" type="text/css" href="css/main.css" />
    <script src="js/modernizr.custom.js"></script>
-    <script type="text/javascript" src="js/TypingText.js"> </script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    
    <title>Ulises Giacoman</title>
    <meta name="viewport" content="width=device-width" />
     <style>
@@ -241,8 +240,9 @@
 	</script>
 <div class="infoContent">
     <h1>Ulises Giacoman</h1>
-                  <span id="target"></span>
-                    <span id="cursor"></span>
+                  
+    
+        <span class="element"></span>
                         <p>Studying Computer Science and International Relations</p> 
                         <p> When not cooking up new projects, I can be found alongside a charcoal grill with my dog Choco. </p>
 
@@ -268,8 +268,18 @@
       <a href="https://www.polaroidblipfoto.com/ugiacoman">Journal</a>
  </div>
 
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <script src="js/classie.js"></script>
 <script src="js/custom.js"></script> 
-</body>
-
+</body>    
+<script type="text/javascript" src="js/TypingText.js"> </script>
+<script>
+    $(function(){
+        $(".element").typed({
+            strings: ["hola", "hello", "Front-End Developer + Personal Fitness Trainer "],
+            typeSpeed: 20
+        });
+    });
+</script>
 </html>
