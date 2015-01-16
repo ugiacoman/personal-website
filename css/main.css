@@ -123,8 +123,8 @@ p {
 	text-align: center;
 	width: 74em;
 	position: relative;
-    background-color: rgba(120,187,156,.8);
-    box-shadow: 0 0 5px 0 #78BB9C;
+    background-color: rgba(120,187,156,.6);
+    box-shadow: 0 0 25px 0 #78BB9C;
 }
 
 .headerContent {

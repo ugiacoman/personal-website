@@ -346,11 +346,11 @@
         // typing speed
         typeSpeed: 0,
         // time before typing starts
-        startDelay: 0,
+        startDelay: 1500,
         // backspacing speed
         backSpeed: 0,
         // time before backspacing
-        backDelay: 500,
+        backDelay: 2000,
         // loop
         loop: false,
         // false = infinite
