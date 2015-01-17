@@ -187,8 +187,8 @@
 
 
 	window.addEventListener( 'mousemove', function( e ) {
-		worldYAngle = -( .5 - ( e.clientX / window.innerWidth ) ) * 180;
-		worldXAngle = ( .5 - ( e.clientY / window.innerHeight ) ) * 180;
+		worldYAngle = -( .5 - ( e.clientX / window.innerWidth ) ) * 10;
+		worldXAngle = ( .5 - ( e.clientY / window.innerHeight ) ) * 10;
 		updateView();
 	} );
 	
