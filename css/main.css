@@ -8,7 +8,7 @@
 
 @media all and (min-width: 1300px){
 	body {
-		font-size: 17px;
+		font-size: 12px;
 	}
 }
 
@@ -34,13 +34,18 @@
 @media all and (max-width: 909px) and (min-width: 605px){
 	body {
 		font-size: 8px;
+        
 	}
 	.second {
 		max-height: 1.2em !important;
 	}
 }
 
-@media all and (max-width: 604px){
+@media all and (max-width: 604px) and (min-width: 380px){
+    h1 {
+		font-size: 5px;
+	}
+    
 	body {
 		font-size: 5px;
 	}
@@ -49,12 +54,22 @@
 	}
 }
 
+@media all and (max-width: 379px) and (min-width: 250px){
+	body {
+		font-size: 4.5px;
+	}
+	.second {
+		max-height: 1.2em !important;
+	}
+}
+
+
 h1 {
 	font-family: 'Montserrat', sans-serif;
 	margin-top: 0;
 	margin-bottom: 40px;
 	margin-bottom: 40px;
-	font-size: 67px;
+	font-size: 60px;
 	color: #fff;
 }
 
@@ -131,7 +146,7 @@ p {
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 700;
 	color: #78BB9C;
-	font-size: 3em;
+	font-size: 2.5em;
 	position: relative;
 	width: 80%;
 	margin: 0 auto;
@@ -145,6 +160,7 @@ p {
     width: 5px;
     padding: 5px;
     margin: 5px;
+    text-shadow: 0 -1px 0 rgba( 0, 0, 0, .6 );
 }
 
 .headerContent > a:nth-child(2), 
