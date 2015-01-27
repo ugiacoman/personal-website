@@ -1,300 +1,162 @@
-<!DOCTYPE html>
-<html>
-<head>
-   <link href='http://fonts.googleapis.com/css?family=Lato:100,400,700,900' rel='stylesheet' type='text/css'>
-   <link rel="stylesheet" type="text/css" href="css/main.css" />
-   <script src="js/modernizr.custom.js"></script>
-    
-   <title>Ulises Giacoman</title>
-   <meta name="viewport" content="device-width, maximum-scale=1">
-    <style>
-	*{ 
-		box-sizing: border-box; 
-		margin: 0; 
-		padding: 0 
-	}
-	body {
-		overflow: hidden;
-	}
-	#viewport {
-		-webkit-perspective: 1000; 
-		-moz-perspective: 1000px; 
-		-o-perspective: 1000; 
-		perspective: 1000px;
-		position: absolute;
-		left: 0;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		overflow: hidden;
-		background-image: linear-gradient(bottom, rgb(69,132,180) 28%, rgb(31,71,120) 64%);
-		background-image: -o-linear-gradient(bottom, rgb(69,132,180) 28%, rgb(31,71,120) 64%);
-		background-image: -moz-linear-gradient(bottom, rgb(69,132,180) 28%, rgb(31,71,120) 64%);
-		background-image: -webkit-linear-gradient(bottom, rgb(69,132,180) 28%, rgb(31,71,120) 64%);
-		background-image: -ms-linear-gradient(bottom, rgb(69,132,180) 28%, rgb(31,71,120) 64%);
+<!doctype html> 
+<html lang="en" class="no-js"> 
+<head> 
+  <meta charset="UTF-8" /> 
+  <title>Ulises Giacoman</title> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/font-awesome-4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/devicon.css">
+  <link rel="stylesheet" href="css/devicon-colors.css">
+  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <script type='text/javascript' src='js/jquery-1.11.1.min.js'></script>
+  <script type='text/javascript' src='js/jquery.particleground.min.js'></script>
+  <script type='text/javascript' src='js/demo.js'></script>
+  <script type='text/javascript' src='js/popper.js'></script>
+</head> 
 
-		background-image: -webkit-gradient(
-			linear,
-			left bottom,
-			left top,
-			color-stop(0.28, rgb(69,132,180)),
-			color-stop(0.64, rgb(31,71,120))
-		);
-	}
-
-	#world {
-		position: absolute;
-		left: 50%;
-		top: 50%;
-		margin-left: -256px;
-		margin-top: -256px;
-		height: 512px;
-		width: 512px;
-		//border: 1px solid rgb( 255, 0, 0 );
-		-webkit-transform-style: preserve-3d;
-		-moz-transform-style: preserve-3d;
-		-o-transform-style: preserve-3d;
-		transform-style: preserve-3d;
-		pointer-events: none;
-	}
-	
-	#world div {
-		-webkit-transform-style: preserve-3d;
-		-moz-transform-style: preserve-3d;	
-		-o-transform-style: preserve-3d;	
-		transform-style: preserve-3d;
-	}
-	
-	.cloudBase {
-		//border: 1px solid #ff00ff;
-		position: absolute;
-		left: 256px;
-		top: 256px;
-		width: 20px;
-		height: 20px;
-		margin-left: -10px;
-		margin-top: -10px;
-	}
-	
-	.cloudLayer {
-		position: absolute;
-		left: 50%;
-		top: 50%;
-		width: 256px;
-		height: 256px;
-		margin-left: -128px;
-		margin-top: -128px;
-		-webkit-transition: opacity .5s ease-out;
-		-moz-transition: opacity .5s ease-out;
-		-o-transition: opacity .5s ease-out;
-		transition: opacity .5s ease-out;
-	}
-	
-	
-	:-moz-full-screen #options{ display: none }
-	:-webkit-full-screen #options{ display: none }
-	:full-screen #options{ display: none }
-	</style>
-    
-</head>
 <body>
-	
-	<div id="viewport" >
-		<div id="world" >
-		</div>
-	</div>
-	
-	<script>
-	(function() {
-		var lastTime = 0;
-		var vendors = ['ms', 'moz', 'webkit', 'o'];
-		for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
-			window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
-			window.cancelRequestAnimationFrame = window[vendors[x]+
-			  'CancelRequestAnimationFrame'];
-		}
 
-		if (!window.requestAnimationFrame)
-			window.requestAnimationFrame = function(callback, element) {
-				var currTime = new Date().getTime();
-				var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-				var id = window.setTimeout(function() { callback(currTime + timeToCall); }, 
-				  timeToCall);
-				lastTime = currTime + timeToCall;
-				return id;
-			};
-
-		if (!window.cancelAnimationFrame)
-			window.cancelAnimationFrame = function(id) {
-				clearTimeout(id);
-			};
-	}())
-
-	var layers = [],
-		objects = [],
-		
-		world = document.getElementById( 'world' ),
-		viewport = document.getElementById( 'viewport' ),
-		
-		d = 0,
-		p = 400,
-		worldXAngle = 0,
-		worldYAngle = 0;
-	
-	viewport.style.webkitPerspective = p;
-	viewport.style.MozPerspective = p;
-	viewport.style.oPerspective = p;
-	
-	generate();
-	
-	function createCloud() {
-	
-		var div = document.createElement( 'div'  );
-		div.className = 'cloudBase';
-		var x = 256 - ( Math.random() * 512 );
-		var y = 256 - ( Math.random() * 512 );
-		var z = 256 - ( Math.random() * 512 );
-		var t = 'translateX( ' + x + 'px ) translateY( ' + y + 'px ) translateZ( ' + z + 'px )';
-		div.style.webkitTransform = t;
-		div.style.MozTransform = t;
-		div.style.oTransform = t;
-		world.appendChild( div );
-		
-		for( var j = 0; j < 5 + Math.round( Math.random() * 10 ); j++ ) {
-			var cloud = document.createElement( 'img' );
-			cloud.style.opacity = 0;
-			var r = Math.random();
-			var src = 'img/cloud.png';
-			( function( img ) { img.addEventListener( 'load', function() {
-				img.style.opacity = .8;
-			} ) } )( cloud );
-			cloud.setAttribute( 'src', src );
-			cloud.className = 'cloudLayer';
-			
-			var x = 256 - ( Math.random() * 512 );
-			var y = 256 - ( Math.random() * 512 );
-			var z = 100 - ( Math.random() * 200 );
-			var a = Math.random() * 360;
-			var s = .25 + Math.random();
-			x *= .2; y *= .2;
-			cloud.data = { 
-				x: x,
-				y: y,
-				z: z,
-				a: a,
-				s: s,
-				speed: .1 * Math.random()
-			};
-			var t = 'translateX( ' + x + 'px ) translateY( ' + y + 'px ) translateZ( ' + z + 'px ) rotateZ( ' + a + 'deg ) scale( ' + s + ' )';
-			cloud.style.webkitTransform = t;
-			cloud.style.MozTransform = t;
-			cloud.style.oTransform = t;
-		
-			div.appendChild( cloud );
-			layers.push( cloud );
-		}
-		
-		return div;
-	}
-	
-	window.addEventListener( 'mousewheel', onContainerMouseWheel );
-	window.addEventListener( 'DOMMouseScroll', onContainerMouseWheel ); 
-
-
-	window.addEventListener( 'mousemove', function( e ) {
-		worldYAngle = -( .5 - ( e.clientX / window.innerWidth ) ) * 10;
-		worldXAngle = ( .5 - ( e.clientY / window.innerHeight ) ) * 10;
-		updateView();
-	} );
-	
-	function generate() {
-		objects = [];
-		if ( world.hasChildNodes() ) {
-			while ( world.childNodes.length >= 1 ) {
-				world.removeChild( world.firstChild );       
-			} 
-		}
-		for( var j = 0; j < 5; j++ ) {
-			objects.push( createCloud() );
-		}
-	}
-	
-	function updateView() {
-		var t = 'translateZ( ' + d + 'px ) rotateX( ' + worldXAngle + 'deg) rotateY( ' + worldYAngle + 'deg)';
-		world.style.webkitTransform = t;
-		world.style.MozTransform = t;
-		world.style.oTransform = t;
-	}
-	
-	function onContainerMouseWheel( event ) {
-			
-		event = event ? event : window.event;
-		d = d - ( event.detail ? event.detail * -5 : event.wheelDelta / 8 );
-		updateView();
-		
-	}
-	
-	function update (){
-		
-		for( var j = 0; j < layers.length; j++ ) {
-			var layer = layers[ j ];
-			layer.data.a += layer.data.speed;
-			var t = 'translateX( ' + layer.data.x + 'px ) translateY( ' + layer.data.y + 'px ) translateZ( ' + layer.data.z + 'px ) rotateY( ' + ( - worldYAngle ) + 'deg ) rotateX( ' + ( - worldXAngle ) + 'deg ) rotateZ( ' + layer.data.a + 'deg ) scale( ' + layer.data.s + ')';
-			layer.style.webkitTransform = t;
-			layer.style.MozTransform = t;
-			layer.style.oTransform = t;
-		}
-		
-		requestAnimationFrame( update );
-		
-	}
-	
-	update();
-	</script>
+<div id="particles">
+  <div class="intro">
+    <h1>Ulises Giacoman</h1> 
+      <span class="element"></span> 
+          <div class="toolbox" >
+              Toolbox
+              <hr>
+              <a href="#" class="tooltip">
+                <i class="devicon-python-plain-wordmark colored"></i>
+                    <span>
+                        <img class="callout" src="img/callout_black.gif" />
+                            <strong></strong><br />
+                                Under Construction
+                    </span>
+              </a>
+              
+              <a href="#" class="tooltip">
+                  <i class="devicon-java-plain-wordmark colored"></i>
+                    <span>
+                        <img class="callout" src="img/callout_black.gif" />
+                            <strong></strong><br />
+                                Under Construction
+                    </span>
+              </a>
+              
+              <a href="#" class="tooltip">
+              <i class="devicon-linux-plain colored"></i>
+                    <span>
+                        <img class="callout" src="img/callout_black.gif" />
+                            <strong></strong><br />
+                                Under Construction
+                    </span>
+              </a>
+              
+              <a href="#" class="tooltip">
+              <i class="devicon-nodejs-plain colored"></i>
+                    <span>
+                        <img class="callout" src="img/callout_black.gif" />
+                            <strong></strong><br />
+                                Under Construction
+                    </span>
+              </a>
+              
+              <hr>
+              
+              <a href="#" class="tooltip">
+              <i class="devicon-html5-plain-wordmark colored"></i>
+                    <span>
+                        <img class="callout" src="img/callout_black.gif" />
+                            <strong></strong><br />
+                                Under Construction
+                    </span>
+              </a>
+      
+              <a href="#" class="tooltip">
+              <i class="devicon-jquery-plain-wordmark colored"></i>
+                    <span>
+                        <img class="callout" src="img/callout_black.gif" />
+                            <strong></strong><br />
+                                Under Construction
+                    </span>
+              </a>
+              
+              <a href="#" class="tooltip">
+              <i class="devicon-javascript-plain colored"></i>
+                    <span>
+                        <img class="callout" src="img/callout_black.gif" />
+                            <strong></strong><br />
+                                Under Construction
+                    </span>
+              </a>
     
-	</script>
-<div class="infoContent">
-    <h1>Ulises Giacoman</h1>
-                  
+              <a href="#" class="tooltip">
+              <i class="devicon-css3-plain-wordmark colored"></i>
+                    <span>
+                        <img class="callout" src="img/callout_black.gif" />
+                            <strong></strong><br />
+                                Under Construction
+                    </span>
+              </a>
+              
+              <hr>
+              
+              <a href="#" class="tooltip">
+              <i class="devicon-git-plain-wordmark colored"></i>
+                    <span>
+                        <img class="callout" src="img/callout_black.gif" />
+                            <strong></strong><br />
+                                Under Construction
+                    </span>
+              </a>
+      
+              <a href="#" class="tooltip">
+              <i class="devicon-illustrator-line colored"></i>
+                    <span>
+                        <img class="callout" src="img/callout_black.gif" />
+                            <strong></strong><br />
+                                Under Construction
+                    </span>
+              </a>
     
-        <span class="element"></span>
-                        <p>Studying Computer Science and International Relations</p> 
-                        <p> When not cooking up new projects, I can be found alongside a charcoal grill with my dog Choco. </p>
+              <a href="#" class="tooltip">
+              <i class="devicon-photoshop-line colored"></i>
+                    <span >
+                        <img class="callout" src="img/callout_black.gif"/>
+                            <strong>Under Construction</strong><br/>
+                                
+                    </span>
+              </a>
+    
+              <a href="#" class="tooltip">
+              <i class="devicon-firefox-plain-wordmark colored"></i>
+                    <span>
+                        <img class="callout" src="img/callout_black.gif" />
+                            <strong></strong><br />
+                                Under Construction
+                    </span>
+              </a>
+          </div>
+      
+      
+      
+      <ul>
+        <li> <a title="GitHub" href="https://github.com/ugiacoman" target="_blank" <i class=" fa fa-github-alt fa-3x"></i></a> </li> 
+        <li> <a title="File" href="https://www.dropbox.com/s/h4poi0cld6iejou/Resume.docx?dl=0" target="_blank" <i class=" fa fa-file-text fa-3x"></i></a> </li> 
+        <li> <a title="LinkedIn" href="https://www.linkedin.com/in/ulisesgiacoman"  target="_blank" <i class=" fa fa-linkedin fa-3x"></i></a> </li> 
+      </ul>
+      
+  </div>
+</div>
 
-           <div class="line">
-              <div class="header">
-                 <div class="first"> Upcoming Events: </div>
-                 <div class="second switch"> 
-                    <div id="hackCont" class="container">
-                       <ul class="itemwrap">
-                          <li class="current"><span>VTHacks</span></li>
-                          <li><span>Hack U</span></li>
-                       </ul>
-                    </div>
-                 </div>
-                 <div style="clear: both;"></div>
-              </div>
-           </div>
-        </div>
 
- <div class="headerContent">
-      <a href="https://github.com/ugiacoman">GitHub</a>
-      <a href="https://www.dropbox.com/s/urq2pea0wnb1xy4/Resume%20%28September%2021%2C%202014%29.docx?dl=0">Resume</a>
-      <a href="https://www.polaroidblipfoto.com/ugiacoman">Journal</a>
- </div>
-
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-<script src="js/classie.js"></script>
-<script src="js/custom.js"></script> 
-</body>    
+</body> 
 <script type="text/javascript" src="js/TypingText.js"> </script>
 <script>
     $(function(){
         $(".element").typed({
-            strings: ["hola", "hello", "Front-End Developer + Personal Fitness Trainer  "],
+            strings: ["Front-End Developer + Personal Fitness Trainer"],
             typeSpeed: 20
         });
     });
 </script>
-</html>
+</html> 
