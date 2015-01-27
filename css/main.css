@@ -105,7 +105,6 @@ a:link {
 }
 a:visited {
     color: #fff;
-<<<<<<< HEAD
 }
 
 ul li a {
@@ -122,24 +121,6 @@ ul li a:hover, ul li a:focus {
 }
 
 
-=======
-}
-
-ul li a {
- display:block;
-margin-top: 10px;
-}
-
-ul li a:hover, ul li a:focus {
- color:#005544;
-  -webkit-transition: all 0.4s;
-     -moz-transition: all 0.4s;
-       -o-transition: all 0.4s;
-          transition: all 0.4s;
-}
-
-
->>>>>>> 86a660d1d897d2a49a68531b69fdc9e0a4f00b51
 h1 {
   text-transform: uppercase;
   font-size: 85px;
@@ -217,51 +198,13 @@ p {
 	margin-bottom: 24px;
 	margin-top: 0;
 }
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 86a660d1d897d2a49a68531b69fdc9e0a4f00b51
 .typed-cursor{
     opacity: 1;
     -webkit-animation: blink 1.2s infinite;
     -moz-animation: blink 1.2s infinite;
     animation: blink 1.2s infinite;
-}
-
-/*Call out box*/
-a.tooltip:hover {
-    text-decoration:none;
-} 
-a.tooltip span {
-    z-index:10;
-    display:none;
-    padding:14px 20px;
-    margin-top:60px;
-    margin-left:-160px;
-    width:300px; 
-    line-height:16px;
-}
-a.tooltip:hover span{
-    display:inline;
-    position:absolute; 
-    border:2px solid #FFF;
-    color:#16A085;
-    background:#fff;
-}
-.callout {
-    z-index:20;
-    position:absolute;
-    border:0;
-    top:-14px;
-    left:120px;
-}
-
-a.tooltip span
-{
-    border-radius:2px;        
-    box-shadow: 0px 0px 2px 2px #fff;
-    /*opacity: 0.8;*/
 }
 @keyframes blink{
     0% { opacity:1; }
