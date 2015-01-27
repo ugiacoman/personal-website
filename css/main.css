@@ -105,6 +105,7 @@ a:link {
 }
 a:visited {
     color: #fff;
+<<<<<<< HEAD
 }
 
 ul li a {
@@ -121,6 +122,24 @@ ul li a:hover, ul li a:focus {
 }
 
 
+=======
+}
+
+ul li a {
+ display:block;
+margin-top: 10px;
+}
+
+ul li a:hover, ul li a:focus {
+ color:#005544;
+  -webkit-transition: all 0.4s;
+     -moz-transition: all 0.4s;
+       -o-transition: all 0.4s;
+          transition: all 0.4s;
+}
+
+
+>>>>>>> 86a660d1d897d2a49a68531b69fdc9e0a4f00b51
 h1 {
   text-transform: uppercase;
   font-size: 85px;
@@ -198,6 +217,11 @@ p {
 	margin-bottom: 24px;
 	margin-top: 0;
 }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 86a660d1d897d2a49a68531b69fdc9e0a4f00b51
 .typed-cursor{
     opacity: 1;
     -webkit-animation: blink 1.2s infinite;
