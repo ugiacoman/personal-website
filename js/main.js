@@ -1,5 +1,5 @@
 /**
- * Particleground demo
+ * Particleground
  * @author Jonathan Nicol - @mrjnicol
  */
 
