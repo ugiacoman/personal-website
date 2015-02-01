@@ -80,12 +80,12 @@ body {
 }
 
 .intro {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  padding: 0 20px;
-  width: 100%;
-  text-align: center;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    padding: 0 20px;
+    width: 100%;
+    text-align: center;
 }
 
 li{  
@@ -237,14 +237,16 @@ a.tooltip span
   }
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 320px) { 
+  .intro {
+      line-height: 50px;
+  }    
   h1 {
     font-size: 28px;
   }
   h1::after {
     height: 4px;
   }
-}
 /*Animated Blinker */
 @keyframes blink{
     0% { opacity:1; }
