@@ -238,15 +238,16 @@ a.tooltip span
 }
 
 @media only screen and (max-width: 320px) { 
-  .intro {
-      line-height: 50px;
-  }    
   h1 {
     font-size: 28px;
   }
   h1::after {
     height: 4px;
   }
+    .badge {
+        visibility: hidden;
+    }
+    
 /*Animated Blinker */
 @keyframes blink{
     0% { opacity:1; }
