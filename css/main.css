@@ -192,6 +192,10 @@ a.tooltip:hover span{
     top:-14px;
     left:120px;
 }
+.badge {
+    margin: auto;
+}
+
 
 a.tooltip span
 {
