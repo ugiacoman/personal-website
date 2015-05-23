@@ -1,59 +1,98 @@
-<!doctype html> 
-<html lang="en" class="no-js"> 
-<head> 
-  <meta charset="UTF-8" /> 
-  <title>Particleground demo</title> 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/font-awesome-4.3.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="css/devicon.css">
-  <link rel="stylesheet" href="css/devicon-colors.css">
-  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-  <script type='text/javascript' src='js/jquery-1.11.1.min.js'></script>
-  <script type='text/javascript' src='js/jquery.particleground.min.js'></script>
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<title>Ulises Giacoman</title>
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<meta name="author" content="Ulises Giacoman" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<link rel="stylesheet" href="css/font-awesome-4.3.0/css/font-awesome.min.css">
+		  <script type='text/javascript' src='js/jquery.particleground.js'></script>
   <script type='text/javascript' src='js/demo.js'></script>
-</head> 
+		<script src="js/modernizr.custom.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<!-- Top Navigation -->
+			<header class="codrops-header">
+				<h1>Ulises Giacoman<span></h1> 
+			</header>
+			<section class="grid3d vertical" id="grid3d">
+				<div class="grid-wrap">
+					<div class="grid">
+						<a href="https://github.com/ugiacoman"><figure class="item"><i class=" fa fa-github-alt fa-5x"></i><br>Github</figure></a>
+						<figure class="item"><i class=" fa fa-connectdevelop fa-5x"></i><br>Projects</figure>
+						<a href="https://www.linkedin.com/in/ulisesgiacoman"> <figure class="item"><i class=" fa fa-linkedin fa-5x"></i><br>Linkedin</figure></a>
+						<a href="Resume.pdf"><figure class="item"><i class=" fa fa-file-text fa-5x"></i><br>Resume</figure></a>
 
-<body>
+					</div>
+				</div><!-- /grid-wrap -->
+				<div class="content">
+					<div>
+						<p class="dummy-text"></p>
+						<p class="dummy-text"></p>
+						<p class="dummy-text"></p>
+					</div>
+					<div>
+						<h1> <font color="363636" size="50">Projects </font></h1>
+						<img src="img/steerClear.jpg" alt="steerClear" align="left"/>
+						<h2>Steer Clear <br>(under development)</h2>
+						<p class="dummy-text">Steer Clear is a safe-ride program that provides a reliable, secure and free means of travel for students on weekend nights. Currently serving over 3000 students, the service requires the student to place a call to their operator. The Steer Clear App will replace the phone service by providing an IOS and Android cell phone app by which users will be able to request a ride. The driver and co-pilot will be able to view the queue via their cell phone as well. The queue features a dynamic algorithm that picks up students in an efficient manner. Not only will the app simplify the request process, it will also provide analytics for administrative purposes.</p>
+						<p class="dummy-text"><font color="363636">Toolbox: IOS | HTML/CSS/Javascript | Python with Flask | Google Maps API </font></p>
 
-<div id="particles">
-  <div class="intro">
-    <h1>Ulises Giacoman</h1> 
-      <span class="element"></span> 
-          <div class="toolbox" >
-              Toolbox
-              <hr>
-              <i class="devicon-python-plain-wordmark colored"></i>
-              <i class="devicon-java-plain-wordmark colored"></i>
-              <i class="devicon-linux-plain colored"></i>
-              <i class="devicon-nodejs-plain colored"></i>
-              <hr>
-              <i class="devicon-html5-plain-wordmark colored"></i>
-              <i class="devicon-jquery-plain-wordmark colored"></i>
-              <i class="devicon-javascript-plain colored"></i>
-              <i class="devicon-css3-plain-wordmark colored"></i>
-              <hr>
-              <i class="devicon-git-plain-wordmark colored"></i>
-              <i class="devicon-illustrator-line colored"></i>
-              <i class="devicon-photoshop-line colored"></i>
-              <i class="devicon-firefox-plain-wordmark colored"></i>
-          </div>
-      <ul>
-        <li> <a title="GitHub" href="https://github.com/ugiacoman" target="_blank" <i class=" fa fa-github-alt fa-3x"></i></a> </li> 
-        <li> <a title="Resume" href="Resume.pdf" target="_blank" <i class=" fa fa-file-text fa-3x"></i></a> </li> 
-        <li> <a title="LinkedIn" href="https://www.linkedin.com/in/ulisesgiacoman"  target="_blank" <i class=" fa fa-linkedin fa-3x"></i></a> </li> 
-      </ul>
-      
-  </div>
-</div>
-</body> 
-<script type="text/javascript" src="js/TypingText.js"> </script>
-<script>
-    $(function(){
-        $(".element").typed({
-            strings: ["¡Hola!", "CS Enthusiast", "Food Epicurean", "William & Mary 2016", "Hackathon Hacker"],
-            typeSpeed: 20
-        });
-    });
-</script>
-</html> 
+						<br><br>
+
+						<img src="img/curbToMe.jpg" alt="curbToMe"  align="right"/>
+						<h2>CurbToMe</h2>
+						<p class="dummy-text">College students love free stuff. Now imagine if you could have free stuff delivered to you for a nominal fee. So free stuff + delivery...count me in! CurbToMe webscrapes the free section of Craigslist in your area and connects you with a courier who will pick-up and deliver the item. This project was developed at Dominion Enterprises Hackathon. 
+						<p class="dummy-text"><font color="363636">Toolbox: HTML/CSS/Javascript | Python with Flask | RSS Feed Scraper | PostMates API | Google Maps API</font></p>
+						<p><a class="dummy-text" text-align="left"href="https://github.com/dehackathon/W-M1"><font color="363636">Github</a></font></p>
+						</p>
+
+						<br><br><br>
+
+						<img src="img/goSeek.jpg" alt="goSeek" align="left"/>
+						<h2>goSeek</h2>
+						<p class="dummy-text">Have you ever wanted to play Hide and Go Seek anywhere? Well now you can! With our goSeek app, you can create or join your friend's lobby. To help find your friends, we implemented a Marco Polo ping. When you press the Marco button, a chirp will play on your friend's phone. Have fun!
+						<p class="dummy-text"><font color="363636">Toolbox: IOS | Python with Flask</font></p>
+						<p><a class="dummy-text" text-align="left"href="https://github.com/ugiacoman/goSeek"><font color="363636">Github</a></font></p>
+						</p>
+						
+						<br><br><br>
+
+						<img src="img/sumthis.jpg" alt="sumthistome" align="right"/>
+						<h2>Sum this to Me</h2>
+						<p class="dummy-text"> What was the jist of the song? Sum this to Me webscrapes a song's lyrics and returns a one sentance summary jist of the song. Caution: Summary will not reveal a song's deeper meaning! 
+						<p class="dummy-text"><font color="363636">Toolbox: HTML/CSS/Javascript | Python Flask | PhantomJS | Selenium</font></p>
+						<p><a class="dummy-text" text-align="left"href="https://github.com/ugiacoman/sumthistome"><font color="363636">Github</a></font></p>
+						</p>
+
+					</div>
+					<div>
+						<div class="dummy-img"></div>
+						<p class="dummy-text">The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.</p>
+						<p class="dummy-text">The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.</p>
+					</div>
+					<span class="loading"></span>
+					<span class="icon close-content"></span>	
+				
+<!-- 			</section>
+			<section>
+				<p>ucontact.<a href="https://www.google.com">me</a></p>
+			</section> -->
+		</div><!-- /container -->
+		<script src="js/classie.js"></script>
+		<script src="js/helper.js"></script>
+		<script src="js/grid3d.js"></script>
+		<script>
+			new grid3D( document.getElementById( 'grid3d' ) );
+		</script>
+		<div id="intro">
+	</body>
+</html>
