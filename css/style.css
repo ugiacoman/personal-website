@@ -54,11 +54,6 @@ a:focus {
 }
 
 
-#container {
-	/*text-align: justify;*/
-	padding-top: 5%;
-	}
-
 #container > div {
 	width: 100px; /* Declare your value. Can be in relative units. */
 	display: inline-block;
@@ -110,7 +105,7 @@ i {
 	height: 0;
 	border-width: 0px;
 	border-style: solid;
-	border-color: #B3DCFD;
+	border-color: rgba(0,0,255,.1);
 	background-color: rgba(0,0,0,0);
 	-webkit-backface-visibility: hidden;
 	-webkit-transition: border-width 0.3s, background-color 0.3s, height 0s 0.3s;
