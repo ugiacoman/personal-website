@@ -19,20 +19,27 @@
 	<body>
 		<div class="container" class="animsition">
 			<header class="header">
+
 				<h1>Ulises Giacoman <span> Web + iOS</h1>
-			
-				<div id="container" class="animsition">
+
+				<div id="container">
+
+
 					<ul>
-						<li>
+						<li class="animsition">
 							<a id="item" class="animsition-link" href="https://github.com/ugiacoman"><i class=" fa fa-github-alt fa-5x"></i><br>Github</a>
 						</li>
-						<li>
+						
+						<li class="animsition">
 							<a id="item" class="animsition-link" href="https://github.com/ugiacoman"><i class="  fa fa-connectdevelop fa-5x"></i><br>Projects</a>
 						</li> 
-						<li>
-							<a id="item" class="animsition-link" href="https://www.linkedin.com/in/ulisesgiacoman"><i class=" fa fa-linkedin fa-5x"></i><br>LinkedIn</a>	
+						<br>
+				<!-- 	</ul>
+					<ul>	 -->
+						<li class="animsition">
+							<a  id="item" class="animsition-link" href="https://www.linkedin.com/in/ulisesgiacoman"><i class=" fa fa-linkedin fa-5x"></i><br>LinkedIn</a>	
 						</li>
-						<li>
+						<li class="animsition">
 							<a id="item" class="animsition-link" href="Resume.pdf"><i class=" fa fa-file-text fa-5x"></i><br>Resume</a>
 						</li>
 					</ul>
@@ -57,7 +64,10 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/animsition/3.5.2/js/jquery.animsition.min.js"></script>
 			<script>
 			$(document).ready(function() {
-			  $(".animsition").animsition();
+			  $(".animsition").animsition({
+			    inClass: 'fade-in-left',
+			    outClass: 'fade-out-left',
+			  });
 			});
 			</script>
 	</body>
