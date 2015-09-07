@@ -64,6 +64,11 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/animsition/3.5.2/js/jquery.animsition.min.js"></script>
 			<script>
 			$(document).ready(function() {
+				window.onpageshow = function(event) {
+				    if (event.persisted) {
+				        window.location.reload() 
+				    }
+				};
 				if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 				  $(".animsition").animsition({
 				    inClass: 'fade-in',
