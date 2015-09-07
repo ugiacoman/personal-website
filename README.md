@@ -1,6 +1,5 @@
 # ugiacoman.github.io
 
-Welcome!
+## Welcome!
 
-Todo:
-  - Fill out projects under each toolbox item.
+Feel free to visit my personal website at udiscover.me
