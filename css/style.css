@@ -112,6 +112,7 @@ i {
 	transition: border-width 0.3s, background-color 0.3s, height 0s 0.3s;
 	font-family: "Avenir Next" !important;
 	font-weight: 300;
+	padding-left: 0.2%;
 }
 
 .bt-menu.bt-menu-open {
