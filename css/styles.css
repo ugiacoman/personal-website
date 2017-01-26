@@ -1,0 +1,222 @@
+html, body {
+  font: 13px Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+  margin: 0;
+}
+
+.logo {
+  padding: 2rem 3rem 1rem 3rem;
+}
+
+a {
+  text-decoration: none;
+  color: #FF8A65;
+}
+
+h4 {
+  color: #FF8A65;
+  font-weight: 500;
+}
+
+.app {
+  padding: 0rem 3rem 1rem 3rem;
+}
+
+.flex {
+  margin: auto;
+  max-width: 650px;
+  padding: 0 3rem;
+}
+
+#instagram {
+  font-size: 2rem;
+}
+
+blockquote {
+    margin-left: -1.75rem;
+    margin-right: 1.75rem;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 1.42188rem;
+    padding-right: 0;
+    padding-top: 0;
+    margin-bottom: 1.75rem;
+    line-height: 1.75rem;
+    color: hsla(0,0%,0%,0.59);
+    font-style: italic;
+    border-left: 0.32813rem solid hsla(0,0%,0%,0.9);
+}
+
+@media only screen and (max-width: 500px) {
+  .flex {
+    padding: 0 0 0 0;
+  }
+  .app .logo {
+    padding-left: 0;
+  }
+  .app {
+    padding: 0rem 2rem 1rem 2rem;
+  }
+
+  blockquote {
+      margin-left: -1.75rem;
+      margin-right: 1.75rem;
+      margin-top: 0;
+      padding-bottom: 0;
+      padding-left: 1rem;
+      padding-right: 0;
+      padding-top: 0;
+      margin-bottom: 1.75rem;
+      line-height: 1.75rem;
+      color: hsla(0,0%,0%,0.59);
+      font-style: italic;
+      border-left: 0.32813rem solid hsla(0,0%,0%,0.9);
+  }  
+}
+
+/*
+Zenburn style from voldmar.ru (c) Vladimir Epifanov <voldmar@voldmar.ru>
+based on dark.css by Ivan Sagalaev
+*/
+
+.markdown pre {
+  display: block;
+  background: #3F3F3F;
+  color: #DCDCDC;
+  overflow-y: hidden;
+}
+
+.markdown pre code {
+  background: none;
+  border: none;
+  border-radius: 3px;
+  display: inline-block;
+  overflow: inherit;
+  padding: 1.58333rem;
+  white-space: inherit;
+  word-wrap: normal;
+}
+
+code {
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  white-space: pre-line;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -hp-pre-wrap;
+  word-wrap: break-word;
+  background: #e5e5e5;
+  border: 1px solid #cccccc;
+  display: inline;
+  font-family: Inconsolata, monospace, serif;
+  max-width: 100%;
+  overflow: auto;
+  padding: 0 0.1625rem;
+}
+
+.hljs-keyword,
+.hljs-tag,
+.css .hljs-class,
+.css .hljs-id,
+.lisp .hljs-title,
+.nginx .hljs-title,
+.hljs-request,
+.hljs-status,
+.clojure .hljs-attribute {
+  color: #E3CEAB;
+}
+
+.django .hljs-template_tag,
+.django .hljs-variable,
+.django .hljs-filter .hljs-argument {
+  color: #DCDCDC;
+}
+
+.hljs-number,
+.hljs-date {
+  color: #8CD0D3;
+}
+
+.dos .hljs-envvar,
+.dos .hljs-stream,
+.hljs-variable,
+.apache .hljs-sqbracket {
+  color: #EFDCBC;
+}
+
+.dos .hljs-flow,
+.diff .hljs-change,
+.python .exception,
+.python .hljs-built_in,
+.hljs-literal,
+.tex .hljs-special {
+  color: #EFEFAF;
+}
+
+.diff .hljs-chunk,
+.hljs-subst {
+  color: #8F8F8F;
+}
+
+.dos .hljs-keyword,
+.python .hljs-decorator,
+.hljs-title,
+.haskell .hljs-type,
+.diff .hljs-header,
+.ruby .hljs-class .hljs-parent,
+.apache .hljs-tag,
+.nginx .hljs-built_in,
+.tex .hljs-command,
+.hljs-prompt {
+    color: #efef8f;
+}
+
+.dos .hljs-winutils,
+.ruby .hljs-symbol,
+.ruby .hljs-symbol .hljs-string,
+.ruby .hljs-string {
+  color: #DCA3A3;
+}
+
+.diff .hljs-deletion,
+.hljs-string,
+.hljs-tag .hljs-value,
+.hljs-preprocessor,
+.hljs-pragma,
+.hljs-built_in,
+.sql .hljs-aggregate,
+.hljs-javadoc,
+.smalltalk .hljs-class,
+.smalltalk .hljs-localvars,
+.smalltalk .hljs-array,
+.css .hljs-rules .hljs-value,
+.hljs-attr_selector,
+.hljs-pseudo,
+.apache .hljs-cbracket,
+.tex .hljs-formula,
+.coffeescript .hljs-attribute {
+  color: #CC9393;
+}
+
+.hljs-shebang,
+.diff .hljs-addition,
+.hljs-comment,
+.java .hljs-annotation,
+.hljs-template_comment,
+.hljs-pi,
+.hljs-doctype {
+  color: #7F9F7F;
+}
+
+.coffeescript .javascript,
+.javascript .xml,
+.tex .hljs-formula,
+.xml .javascript,
+.xml .vbscript,
+.xml .css,
+.xml .hljs-cdata {
+  opacity: 0.5;
+}
