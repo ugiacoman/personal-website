@@ -9,11 +9,13 @@ html, body {
 
 a {
   text-decoration: none;
-  color: #FF8A65;
+  color: #4DB6AC;
 }
 
+h2, h3, h4 {
+  color: #4DB6AC;
+}
 h4 {
-  color: #FF8A65;
   font-weight: 500;
 }
 
@@ -46,6 +48,10 @@ blockquote {
     border-left: 0.32813rem solid hsla(0,0%,0%,0.9);
 }
 
+img {
+  max-width: 100%;
+}
+
 @media only screen and (max-width: 500px) {
   .flex {
     padding: 0 0 0 0;
@@ -73,6 +79,8 @@ blockquote {
   }  
 }
 
+
+
 /*
 Zenburn style from voldmar.ru (c) Vladimir Epifanov <voldmar@voldmar.ru>
 based on dark.css by Ivan Sagalaev
@@ -97,9 +105,6 @@ based on dark.css by Ivan Sagalaev
 }
 
 code {
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
   white-space: pre;
   white-space: pre-wrap;
   white-space: pre-line;
@@ -108,8 +113,7 @@ code {
   white-space: -moz-pre-wrap;
   white-space: -hp-pre-wrap;
   word-wrap: break-word;
-  background: #e5e5e5;
-  border: 1px solid #cccccc;
+  background: #E0F7FA;
   display: inline;
   font-family: Inconsolata, monospace, serif;
   max-width: 100%;
