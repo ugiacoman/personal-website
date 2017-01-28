@@ -238,19 +238,14 @@ const ampify = function(html, filePath) {
   });
   
   // Set the layouts for all the images
-  $('.main-pane amp-img, .page amp-img').each(function(){
+  $('.main-pane amp-img, .page amp-img, amp-img').each(function(){
     if($(this).attr('data-layout')) {
       $(this).attr('layout', $(this).attr('data-layout'));
     } else {
       // For images that are really large, let them be responsive and allow them to go full screen
       // Fixed images that are really large don't scale down well with AMP for some reason. So this
       // is somewhat of a hack fix
-      if($(this).attr('width') > 700 ) {
-        $(this).attr('layout', 'responsive');
-      // For most images, just let them be fixed and css will scale them down
-      } else {
-        $(this).attr('layout', 'fixed');
-      }
+      $(this).attr('layout', 'responsive');
     }
   });
 

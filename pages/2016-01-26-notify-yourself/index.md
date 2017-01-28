@@ -31,7 +31,6 @@ i.e. `https://slackers.slack.com/apps/build`
 
 <img src="//i.imgur.com/19Ev5bl.png" alt="Slack Integration Confirmation" width="650" height="203.25"/>
 
-
 Webhooks are exactly what they sound like, a hook on the web. They're little Captain Hooks that will do 
 your bidding, when they are called to action. In this case they will intercept our custom message and
 post it in our channel. 
