@@ -29,7 +29,7 @@ i.e. `https://slackers.slack.com/apps/build`
 4. By this step you'll know whether you have access to creating integrations on your team.
 5. Confirm by selecting a default channel you'd like to post to (doesn't really matter, you'll be able to post to any). I chose: `Privately to myself`.
 
-<img src="//i.imgur.com/19Ev5bl.png" alt="Slack Integration Confirmation"/>
+<img src="//i.imgur.com/19Ev5bl.png" alt="Slack Integration Confirmation" width="650" height="203.25"/>
 
 
 Webhooks are exactly what they sound like, a hook on the web. They're little Captain Hooks that will do 
