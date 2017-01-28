@@ -48,7 +48,7 @@ blockquote {
     border-left: 0.32813rem solid hsla(0,0%,0%,0.9);
 }
 
-img {
+amp-img, img {
   max-width: 100%;
 }
 
