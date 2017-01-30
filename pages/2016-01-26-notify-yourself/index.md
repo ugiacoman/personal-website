@@ -152,8 +152,6 @@ module.exports = async request => {
                                 return 'Couldn\'t reach slack, check if you configured your .env file correctly.'
                               })
   return response
-
-
 ```
 
 You can now post messages to your Slack by simply hitting our endpoint, i.e. `//localhost:3000/?username=Uli%20bot&text=hiya%20people&emoji=partyparrot`.
