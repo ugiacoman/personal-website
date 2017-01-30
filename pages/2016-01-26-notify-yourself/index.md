@@ -19,7 +19,7 @@ cost you a dime. The Slack API lets us send messages to channels and users. Comb
 
 Our goal is to be able to ping Slack with a custom message of our choosing. To do so, we'll create
 a wrapper around the Slack API. This wrapper will provide a simple layer of security around Slack's API. Most
-importatly, the wrapper will be accessable to any system we choose to use it in.
+importantly, the wrapper will be accessible to any system we choose to use it in.
 
 ### Creating a Slack Integration 
 
@@ -50,14 +50,14 @@ You can find the codebase for the API [here](https://github.com/ugiacoman/notifi
 Full instructions on how to deploy using Heroku can be found in the `README.md`. Below, I will explain the codebase.
 
 #### Micro + Heroku
-We'll use two tools to create and host our API: Micro + Heroku. Micro will allow us to create a minamalist
+We'll use two tools to create and host our API: Micro + Heroku. Micro will allow us to create a minimalist
 API (micro-service), without any overhead. Heroku lets us deploy effortlessly and gives us a server where we can host our API.
 When using Heroku free tier, your API will go to sleep during inactivity. However, this is ok because the request will still go through.
-Keep this in mind if you need realtime notifications. If your API goes to sleep, the first request will be slow to respond, but then will
+Keep this in mind if you need real time notifications. If your API goes to sleep, the first request will be slow to respond, but then will
 behave normally. 
 
 #### The Wrapper
-Our API will wrap the Slack Webhook. We'll open access to the username, user icon, and message. We'll hardcode the channel so that your Slack team doesn't
+Our API will wrap the Slack Webhook. We'll open access to the username, user icon, and message. We'll hard code the channel so that your Slack team doesn't
 get spammed. Now, we want to simplify access to the Slack API, so we'll be creating a `GET` endpoint and use URL query parameters to configure our messages.
 Let's start off by parsing the query into our payload object. We'll parse the query using `url` and use environment variables (`process.env.CHANNEL`) 
 to set the channel to which to post to. Remember this can be a channel (`#general`) or a user (`@uli`). We are setting these variables in our `.env` file.
@@ -160,6 +160,6 @@ You can now post messages to your Slack by simply hitting our endpoint, i.e. `//
 
 ### Use Cases
 
-Now you can embed this request virtually anywhere. You can embed this into your personal website so that when anyone visits it, it will ping you. You can embed this into
-your mobile application to get push notifications whenever a certain event occurs. The possibilities are endless. Make sure you have Slack push notifications enabled on 
+Now you can embed this request virtually anywhere. You can embed this into your personal website so that when anyone visits, it will ping you. You can embed this into
+your mobile application to get push notifications whenever a user taps a button. The possibilities are endless. Make sure you have Slack push notifications enabled on 
 your smartphone :)
