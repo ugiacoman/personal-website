@@ -11,13 +11,15 @@ internet, we instead plug in our own observers that will notify us about the eve
 
 If you use Slack, then you probably have used a slack integration. Integrations can be incredibly robust
 because of Slack's open API. We are going to focus on creating personalized notifications through Slack.
-Notifications that you can enable/disable when you don't need them. Best of all, it won't
-cost you a dime. The Slack API lets us send messages to channels and users. Combine their API with your smartphone, 
-and you'll be sending yourself push notifications for 
+Notifications that you can enable/disable at your discretion. Best of all, it won't
+cost you a dime. The Slack API lets us send messages to channels and users. Combine their API with your
+ smartphone, and you'll be sending yourself push notifications in no time! 
 
 ## Let's get to it.
 
-In our case, we will be sending ourselves a push notification everytime someone visits our website.
+Our goal is to be able to ping Slack with a custom message of our choosing. To do so, we'll create
+a wrapper around the Slack API. This wrapper will provide a simple layer of security around Slack's API. Most
+importatly, the wrapper will be accessable to any system we choose to use it in.
 
 ### Creating a Slack Integration 
 
@@ -32,16 +34,17 @@ i.e. `https://slackers.slack.com/apps/build`
 <img src="//i.imgur.com/19Ev5bl.png" alt="Slack Integration Confirmation" width="650" height="203.25"/>
 
 Webhooks are exactly what they sound like, a hook on the web. They're little Captain Hooks that will do 
-your bidding, when they are called to action. In this case they will intercept our custom message and
+your bidding when they are called to action. In this case they will intercept our custom message and
 post it in our channel. 
 
 ### Creating our API
 
 Now that you have created a custom integration, you'll need the Webhook URL to be able to post to your team's Slack.
-With that URL, you'll be able to send `POST` requests with directions on where to deliver your payload. This is nice,
-but if anyone get's your Webhook URL, they'll be able to post anywhere on your team's slack. So let's add a level of
-security, by wrapping it in our own API. This way, we'll be able to use our API on front end clients. If people
-do abuse your API, they'll abuse only to the level you've let them. 
+With that URL, you'll be able to send `POST` requests with your payload. The payload contains the directions of
+the where/what/who of your message. This is nice, but if anyone gets your Webhook URL, they'll be able to post 
+anywhere on your team's Slack. So let's add a level of security, by wrapping it in our own API. This way,
+ we'll be able to use our API on frontend clients. If people do abuse your API, they'll abuse only to the level
+  you've let them. 
 
 You can find the codebase for the API [here](https://github.com/ugiacoman/notification-api/blob/master/index.js).
 Full instructions on how to deploy using Heroku can be found in the `README.md`. Below, I will explain the codebase.
@@ -55,7 +58,7 @@ behave normally.
 
 #### The Wrapper
 Our API will wrap the Slack Webhook. We'll open access to the username, user icon, and message. We'll hardcode the channel so that your Slack team doesn't
-get spammed. Now we want to simplify access to the Slack API, so we'll be creating a `GET` endpoint and use URL query parameters to configure our messages.
+get spammed. Now, we want to simplify access to the Slack API, so we'll be creating a `GET` endpoint and use URL query parameters to configure our messages.
 Let's start off by parsing the query into our payload object. We'll parse the query using `url` and use environment variables (`process.env.CHANNEL`) 
 to set the channel to which to post to. Remember this can be a channel (`#general`) or a user (`@uli`). We are setting these variables in our `.env` file.
 
@@ -83,10 +86,12 @@ var payload = { 'channel': process.env.CHANNEL,
 
 #### Sending our request
 
-Our Slack Webhook accepts `form-urlencoded` parameters. These parameters are of key-value type, specifically it expects a parameter `payload` with
+Our Slack Webhook accepts `form-urlencoded` parameters. These parameters are of key-value type. Specifically it expects a parameter `payload` with
 the value of a `JSON` object. This object contains our message options (channel, username, etc..).
-We'll use `isomorphic-fetch` to send our `GET` request to our API. We are using `await` to not block up the main thread and making this request asynchronous.
-Our `await`, will wait for the `promise` to go through. Promises capture the idea that we'll eventually get value back and that it might not be immediately. 
+We'll use `isomorphic-fetch` to send our `GET` request to our API. We are using `await` to not block up the main thread by making this request asynchronous.
+Our `await`, will wait for the `promise` to go through. 
+
+Promises capture the idea that we'll eventually get a value back and that it might not be immediately. 
 Then we'll store the response and return it. In our case, the response will let us know if there is an error in posting to Slack. 
 
 ```js
@@ -114,9 +119,11 @@ return response
 
 #### Exporting and Usage
 
-Our full API, we didn't cover `module.exports`. By exporting, we are telling `micro` to use this code as our endpoint.
+Our full `micro` API endpoint is below. Quick note: we didn't cover `module.exports`. By exporting, we are telling `micro` to use this code as our endpoint.
 
 ```js
+// index.js
+
 const { parse } = require('url')
 const fetch = require('isomorphic-fetch')
 require('dotenv').config()
@@ -149,10 +156,10 @@ module.exports = async request => {
 
 ```
 
-We can now post messages to your Slack by simply hitting our endpoint, i.e. `//host.com/?username=Uli%20bot&text=hiya%20people&emoji=partyparrot`.
+You can now post messages to your Slack by simply hitting our endpoint, i.e. `//localhost:3000/?username=Uli%20bot&text=hiya%20people&emoji=partyparrot`.
 
 ### Use Cases
 
-Now you can embed this request into any page, such as your personal website, and you'll get notified! Make sure you have Slack push notifications enabled :)
-
-Stay tuned for building minimal iOS crash reporting by using our micro-service above.
+Now you can embed this request virtually anywhere. You can embed this into your personal website so that when anyone visits it, it will ping you. You can embed this into
+your mobile application to get push notifications whenever a certain event occurs. The possibilities are endless. Make sure you have Slack push notifications enabled on 
+your smartphone :)
