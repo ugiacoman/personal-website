@@ -3,14 +3,16 @@ import { Link } from 'react-router'
 import { prefixLink } from 'gatsby-helpers'
 import { prune, include as includes } from 'underscore.string'
 import find from 'lodash/find'
+import axios from 'axios'
 
 class ReadNext extends React.Component {
 
-  componentDidMount() {
-    var url = "//blooming-gorge-88603.herokuapp.com/?username=Uli bot&text=Someone read your article!&emoji=:partyparrot"
-    fetch(url)
-      .then(function(response) {
-      }, function(error) {
+  componentWillMount() {
+    var url = "//blooming-gorge-88603.herokuapp.com/?username=Uli bot&text=Someone visited your website!&emoji=:partyparrot"
+    axios.get(url)
+      .then(function (response) {
+      })
+      .catch(function (error) {
       })
   }
     
