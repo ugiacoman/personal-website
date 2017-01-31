@@ -5,6 +5,15 @@ import { prune, include as includes } from 'underscore.string'
 import find from 'lodash/find'
 
 class ReadNext extends React.Component {
+
+  componentDidMount() {
+    var url = "//blooming-gorge-88603.herokuapp.com/?username=Uli bot&text=Someone read your article!&emoji=:partyparrot"
+    fetch(url)
+      .then(function(response) {
+      }, function(error) {
+      })
+  }
+    
   render () {
     const { pages, post } = this.props
     const { readNext } = post

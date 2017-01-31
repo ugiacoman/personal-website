@@ -7,8 +7,18 @@ import access from 'safe-access'
 import { config } from 'config'
 import include from 'underscore.string/include'
 import Bio from 'components/Bio'
+const fetch = require('isomorphic-fetch')
 
 class BlogIndex extends React.Component {
+
+  componentDidMount() {
+    var url = "//blooming-gorge-88603.herokuapp.com/?username=Uli bot&text=Someone visited your website!&emoji=:partyparrot"
+    fetch(url)
+      .then(function(response) {
+      }, function(error) {
+      })
+  }
+
   render () {
     const pageLinks = []
     // Sort pages.
