@@ -39,7 +39,7 @@ post it in our channel.
 
 ### Creating our API
 
-Now that you have created a custom integration, you'll need the Webhook URL to be able to post to your team's Slack.
+Now that you have created a custom integration, you'll need the WebHook URL to be able to post to your team's Slack.
 With that URL, you'll be able to send `POST` requests with your payload. The payload contains the directions of
 the where/what/who of your message. This is nice, but if anyone gets your Webhook URL, they'll be able to post 
 anywhere on your team's Slack. So let's add a level of security, by wrapping it in our own API. This way,
@@ -53,7 +53,7 @@ Full instructions on how to deploy using Heroku can be found in the `README.md`.
 We'll use two tools to create and host our API: Micro + Heroku. Micro will allow us to create a minimalist
 API (micro-service), without any overhead. Heroku lets us deploy effortlessly and gives us a server where we can host our API.
 When using Heroku free tier, your API will go to sleep during inactivity. However, this is ok because the request will still go through.
-Keep this in mind if you need real time notifications. If your API goes to sleep, the first request will be slow to respond, but then will
+Keep this in mind if you need real time notifications. If your API goes to sleep, the first request will receive a slow response, but then will
 behave normally. 
 
 #### The Wrapper
