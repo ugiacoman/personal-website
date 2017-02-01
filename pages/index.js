@@ -12,12 +12,12 @@ import axios from 'axios'
 class BlogIndex extends React.Component {
   
   render () {
-  var url = "//blooming-gorge-88603.herokuapp.com/?username=Uli bot&text=Someone visited your website!&emoji=:partyparrot"
-  axios.get(url)
-    .then(function (response) {
-    })
-    .catch(function (error) {
-    })    
+  // var url = "//blooming-gorge-88603.herokuapp.com/?username=Uli bot&text=Someone visited your website!&emoji=:partyparrot"
+  // axios.get(url)
+  //   .then(function (response) {
+  //   })
+  //   .catch(function (error) {
+  //   })    
     const pageLinks = []
     // Sort pages.
     const sortedPages = sortBy(this.props.route.pages, (page) =>
@@ -50,6 +50,7 @@ class BlogIndex extends React.Component {
         <ul>
           {pageLinks}
         </ul>
+        <amp-pixel src="https://blooming-gorge-88603.herokuapp.com/?username=Uli bot&text=Someone visited your website.&emoji=:partyparrot"></amp-pixel>
       </div>
     )
   }

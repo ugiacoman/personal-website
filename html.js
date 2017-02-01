@@ -25,6 +25,7 @@ module.exports = React.createClass({
         <head>
           <meta charSet="utf-8" />
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+          <script async custom-element="amp-iframe" src="https://cdn.rawgit.com/ugiacoman/uli-api/afb8d9cf/iframe.js"></script>
           <meta
             name="viewport"
             content="width=device-width, initial-scale=1.0"

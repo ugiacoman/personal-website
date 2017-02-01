@@ -101,6 +101,8 @@ const ampify = function(html, filePath) {
   const minimalPath = urlPath.substring(0, urlPath.lastIndexOf("/")) + '/'; // No index.html at the end
   $('head').append(`<link rel="canonical" href="${minimalPath}" />`);
 
+  
+
   // If the viewport meta isn't correctly set in regards to the amp standards, then set it
   if ($('head meta[content="width=device-width,minimum-scale=1,initial-scale=1"]').length === 0) {
     // Remove the viewport meta if it exists
@@ -146,7 +148,7 @@ const ampify = function(html, filePath) {
   });
   
   // Add any needed fonts
-  $("head").append($('<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />'));
+  // $("head").append($('<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />'));
 
   // remove style attributes from everything. No inline styles with amp
   $( "*" ).removeAttr('style');

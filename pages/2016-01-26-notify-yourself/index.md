@@ -72,9 +72,6 @@ CHANNEL=#general
 ```js
 // index.js
 
-const { parse } = require('url')
-require('dotenv').config()
-
 const { query } = parse(request.url, true)
 
 var payload = { 'channel': process.env.CHANNEL,
@@ -88,7 +85,7 @@ var payload = { 'channel': process.env.CHANNEL,
 
 Our Slack Webhook accepts `form-urlencoded` parameters. These parameters are of key-value type. Specifically it expects a parameter `payload` with
 the value of a `JSON` object. This object contains our message options (channel, username, etc..).
-We'll use `isomorphic-fetch` to send our `GET` request to our API. We are using `await` to not block up the main thread by making this request asynchronous.
+We'll use `isomorphic-fetch` to send our `GET` request to our API and `await` to make this request asynchronous.
 Our `await`, will wait for the `promise` to go through. 
 
 Promises capture the idea that we'll eventually get a value back and that it might not be immediately. 
@@ -119,16 +116,21 @@ return response
 
 #### Exporting and Usage
 
-Our full `micro` API endpoint is below. Quick note: we didn't cover `module.exports`. By exporting, we are telling `micro` to use this code as our endpoint.
+Our full `micro` API endpoint is below. Quick note: we didn't cover `module.exports` and `micro-cors`. By exporting, we are telling `micro` to use 
+the function pingSlack as our endpoint. The helper `micro-cors` let's us easily enable Cross Origin Resource Sharing for specific requests, 
+which simply means that other servers can ping our server. For example, if a Heroku Server wants to talk to an Amazon server, if CORS is not 
+enabled for that given request, then it will error out.
 
 ```js
 // index.js
 
 const { parse } = require('url')
 const fetch = require('isomorphic-fetch')
+const microCors = require('micro-cors')
+
 require('dotenv').config()
 
-module.exports = async request => {
+const pingSlack = async (request, response)  => {
   const { query } = parse(request.url, true)
 
   var payload = { 'channel': process.env.CHANNEL,
@@ -147,17 +149,29 @@ module.exports = async request => {
                                 body: formBody
                                 })
                               .then(function(response) {
-                                return response.text()
+                                return(response.text())
                               }, function(error) {
-                                return 'Couldn\'t reach slack, check if you configured your .env file correctly.'
+                                return('Couldn\'t reach slack, check if you configured your .env file correctly.')
                               })
-  return response
+return response
+}
+
+const cors = microCors({ allowMethods: ['GET']})
+module.exports = cors(pingSlack)
 ```
 
-You can now post messages to your Slack by simply hitting our endpoint, i.e. `//localhost:3000/?username=Uli%20bot&text=hiya%20people&emoji=partyparrot`.
+If you run the project locally via `yarn start` you'll be able to post messages to your Slack by simply hitting your 
+endpoint, i.e. `//localhost:3000/?username=Uli%20bot&text=hiya%20people&emoji=partyparrot`. Make sure you've completed the
+steps listed in the Usage part of the `README.md` before trying to run.
 
 ### Use Cases
 
 Now you can embed this request virtually anywhere. You can embed this into your personal website so that when anyone visits, it will ping you. You can embed this into
 your mobile application to get push notifications whenever a user taps a button. The possibilities are endless. Make sure you have Slack push notifications enabled on 
 your smartphone :)
+
+#### Bonus: Usage with AMP
+
+Since AMP doesn't allow you to load just any script, you can use `amp-pixel` to send `GET` requests. It is meant for tracking, analytics, etc...
+
+<amp-pixel src="https://blooming-gorge-88603.herokuapp.com/?username=Uli bot&text=Someone read: notify yourself!&emoji=:partyparrot"></amp-pixel>
