@@ -310,6 +310,6 @@ recursive(inputDir, ['amp'], function (err, files) {
     fs.writeFileSync(fileToConvert, addAmpVersionLink(contents, fileToConvert), 'utf8')
   }
   fs.createReadStream('./pages/static/CNAME').pipe(fs.createWriteStream('./amp/CNAME'))
-  fs.createReadStream('./pages/static/README.md').pipe(fs.createWriteStream('./amp/README.md'))
+  fs.createReadStream('./README.md').pipe(fs.createWriteStream('./amp/README.md'))
   console.log('The site is now AMP ready')
 })
