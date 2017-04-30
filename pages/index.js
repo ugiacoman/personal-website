@@ -2,22 +2,14 @@ import React from 'react'
 import { Link } from 'react-router'
 import sortBy from 'lodash/sortBy'
 import { prefixLink } from 'gatsby-helpers'
-import Helmet from "react-helmet"
+import Helmet from 'react-helmet'
 import access from 'safe-access'
 import { config } from 'config'
 import include from 'underscore.string/include'
 import Bio from 'components/Bio'
-import axios from 'axios'
 
 class BlogIndex extends React.Component {
-  
   render () {
-  // var url = "//blooming-gorge-88603.herokuapp.com/?username=Uli bot&text=Someone visited your website!&emoji=:partyparrot"
-  // axios.get(url)
-  //   .then(function (response) {
-  //   })
-  //   .catch(function (error) {
-  //   })    
     const pageLinks = []
     // Sort pages.
     const sortedPages = sortBy(this.props.route.pages, (page) =>
@@ -30,8 +22,8 @@ class BlogIndex extends React.Component {
           <li
             key={page.path}
           >
-            <Link 
-            to={prefixLink(page.path)}>{title}</Link>
+            <Link
+              to={prefixLink(page.path)}>{title}</Link>
           </li>
         )
       }
@@ -41,8 +33,8 @@ class BlogIndex extends React.Component {
         <Helmet
           title={config.authorName}
           meta={[
-            {"name": "description", "content": "Sample blog"},
-            {"name": "keywords", "content": "blog, articles"},
+            {'name': 'description', 'content': 'Ulises Giacoman Web + Mobile Land'},
+            {'name': 'keywords', 'content': 'Ulises Giacoman, dev, ios, react-native, react, iOS, android, web'}
           ]}
         />
         <Bio />
@@ -50,14 +42,14 @@ class BlogIndex extends React.Component {
         <ul>
           {pageLinks}
         </ul>
-        <amp-pixel src="https://blooming-gorge-88603.herokuapp.com/?username=Uli bot&text=Someone visited your website.&emoji=:partyparrot"></amp-pixel>
+        <amp-pixel src='https://blooming-gorge-88603.herokuapp.com/?username=Uli bot&text=Someone visited your website.&emoji=:partyparrot' />
       </div>
     )
   }
 }
 
 BlogIndex.propTypes = {
-  route: React.PropTypes.object,
+  route: React.PropTypes.object
 }
 
 export default BlogIndex

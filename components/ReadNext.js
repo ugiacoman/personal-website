@@ -3,10 +3,8 @@ import { Link } from 'react-router'
 import { prefixLink } from 'gatsby-helpers'
 import { prune, include as includes } from 'underscore.string'
 import find from 'lodash/find'
-import axios from 'axios'
 
 class ReadNext extends React.Component {
-
   render () {
     const { pages, post } = this.props
     const { readNext } = post
@@ -36,8 +34,8 @@ class ReadNext extends React.Component {
               to={{
                 pathname: prefixLink(nextPost.path),
                 query: {
-                  readNext: true,
-                },
+                  readNext: true
+                }
               }}
             >
               {nextPost.data.title}
@@ -53,7 +51,7 @@ class ReadNext extends React.Component {
 
 ReadNext.propTypes = {
   post: React.PropTypes.object.isRequired,
-  pages: React.PropTypes.array,
+  pages: React.PropTypes.array
 }
 
 export default ReadNext

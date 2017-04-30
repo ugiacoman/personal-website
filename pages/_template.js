@@ -20,7 +20,7 @@ class Template extends React.Component {
           <h3>
             Web + iOS
           </h3>
-        </div>        
+        </div>
       )
     } else {
       header = (
@@ -36,10 +36,10 @@ class Template extends React.Component {
     return (
       <div className='app'>
         <div className='logo'>
-            <Link to={prefixLink('/')}>land of dev</Link>
+          <Link to={prefixLink('/')}>land of dev</Link>
         </div>
         <div className='flex'>
-          {header}          
+          {header}
           {children}
         </div>
       </div>
@@ -50,7 +50,7 @@ class Template extends React.Component {
 Template.propTypes = {
   children: React.PropTypes.any,
   location: React.PropTypes.object,
-  route: React.PropTypes.object,
+  route: React.PropTypes.object
 }
 
 export default Template

@@ -1,6 +1,6 @@
 import React from 'react'
 import moment from 'moment'
-import Helmet from "react-helmet"
+import Helmet from 'react-helmet'
 import ReadNext from '../components/ReadNext'
 import { config } from 'config'
 import Bio from 'components/Bio'
@@ -14,7 +14,7 @@ class MarkdownWrapper extends React.Component {
     const post = route.page.data
 
     return (
-      <div className="markdown">
+      <div className='markdown'>
         <Helmet
           title={`${post.title} | ${config.blogTitle}`}
         />
@@ -33,7 +33,7 @@ class MarkdownWrapper extends React.Component {
 }
 
 MarkdownWrapper.propTypes = {
-  route: React.PropTypes.object,
+  route: React.PropTypes.object
 }
 
 export default MarkdownWrapper
