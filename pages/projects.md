@@ -5,4 +5,4 @@ layout: post
 path: "/projects/"
 ---
 
-### Coming soon :P
+### :) Coming soon :P 
