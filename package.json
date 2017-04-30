@@ -41,6 +41,7 @@
     "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "gatsby build && node ampify.js",
-    "deploy": "gatsby build --prefix-links && gh-pages -d amp -b master -a"
+    "deploy": "gatsby build --prefix-links && gh-pages -d amp -b master",
+    "gh": "gh-pages -h"
   }
 }
