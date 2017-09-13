@@ -1,11 +1,12 @@
 import React from 'react'
 import 'isomorphic-fetch'
+// import Link from 'next/link'
 
 const url = (param) => {
   return `https://blooming-gorge-88603.herokuapp.com/?username=Uli bot&text=udiscover: ${param}&emoji=:partyparrot`
 }
 
-export default class Links extends React.Component {
+export default class Links extends React.PureComponent {
   _navigateToResume () {
     fetch(url('resume'))
   }
@@ -36,6 +37,9 @@ export default class Links extends React.Component {
         >
           Projects
         </a>
+        {/* <Link prefetch href="/projects">
+          <a>Projects</a>
+        </Link> */}
         {` | `}
         <a
           onClick={this._navigateToGithub}
