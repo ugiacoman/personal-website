@@ -1,17 +1,21 @@
 import React from 'react'
 import 'isomorphic-fetch'
 
+const url = (param) => {
+  return `https://blooming-gorge-88603.herokuapp.com/?username=Uli bot&text=udiscover: ${param}&emoji=:partyparrot`
+}
+
 export default class Links extends React.Component {
   _navigateToResume () {
-    fetch('https://blooming-gorge-88603.herokuapp.com/?username=Uli bot&text=udiscover: resume&emoji=:partyparrot')
+    fetch(url('resume'))
   }
 
   _navigateToProjects () {
-    fetch('https://blooming-gorge-88603.herokuapp.com/?username=Uli bot&text=udiscover: projects&emoji=:partyparrot')
+    fetch(url('projects'))
   }
 
   _navigateToGithub () {
-    fetch('https://blooming-gorge-88603.herokuapp.com/?username=Uli bot&text=udiscover: github&emoji=:partyparrot')
+    fetch(url('github'))
   }
 
   render () {
@@ -34,7 +38,7 @@ export default class Links extends React.Component {
         </a>
         {` | `}
         <a
-          onClick={this._navigateToProjects}
+          onClick={this._navigateToGithub}
           href={'//github.com/ugiacoman'}
           target='_blank'
         >
