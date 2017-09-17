@@ -25,7 +25,6 @@ class Index extends React.Component {
             display: flex;
             align-items: center;
             min-height: 24em;
-            margin: 2em;
             justify-content: center;
           }
         `}</style>

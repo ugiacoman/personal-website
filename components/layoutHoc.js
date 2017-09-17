@@ -18,7 +18,7 @@ function layoutHoc (Child) {
           <style jsx global>{`
             html, body {
               font: 13px Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
-              margin: 0;
+              margin: 2em;
             }
             a {
               text-decoration: none;
