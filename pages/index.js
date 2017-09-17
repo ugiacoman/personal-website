@@ -1,11 +1,15 @@
 import React from 'react'
 import LayoutHoc from '../components/layoutHoc'
 import Bio from '../components/bio'
+import 'isomorphic-fetch'
 
 class Index extends React.Component {
   static getInitialProps (context) {
     const { isServer } = context
     return { isServer }
+  }
+  componentDidMount () {
+    fetch(`https://blooming-gorge-88603.herokuapp.com/?username=Uli bot&text=udiscover&emoji=:partyparrot`)
   }
 
   render () {
