@@ -19,6 +19,10 @@ export default class Links extends React.PureComponent {
     fetch(url('github'))
   }
 
+  _navigateToMedium () {
+    fetch(url('medium'))
+  }
+
   render () {
     return (
       <div>
@@ -47,6 +51,14 @@ export default class Links extends React.PureComponent {
           target='_blank'
         >
           Github
+        </a>
+        {` | `}
+        <a
+          onClick={this._navigateToMedium}
+          href={'//medium.com/@ugiacoman'}
+          target='_blank'
+        >
+          Medium
         </a>
       </div>
     )

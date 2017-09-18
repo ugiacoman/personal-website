@@ -20,7 +20,7 @@ class Index extends React.Component {
             Ulises Giacoman
           </h1>
           <h3>
-            Web + iOS
+            iOS + Web
           </h3>
           <Bio />
         </div>
