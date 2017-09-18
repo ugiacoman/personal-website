@@ -12,6 +12,7 @@ function layoutHoc (Child) {
           <Head>
             <title>Uli</title>
             <meta charSet='utf-8' />
+            <link rel='shortcut icon' type='image/x-icon' href='/static/favicon.ico' />
             <meta name='viewport' content='initial-scale=1.0, width=device-width' />
           </Head>
           <Child {...this.props} />
