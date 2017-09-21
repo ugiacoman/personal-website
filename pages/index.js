@@ -9,7 +9,7 @@ class Index extends React.Component {
     return { isServer }
   }
   componentDidMount () {
-    fetch(`https://blooming-gorge-88603.herokuapp.com/?username=Uli bot&text=udiscover&emoji=:partyparrot`)
+    // fetch(`https://blooming-gorge-88603.herokuapp.com/?username=Uli bot&text=udiscover&emoji=:partyparrot`)
   }
 
   render () {

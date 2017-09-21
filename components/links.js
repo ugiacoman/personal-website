@@ -1,6 +1,5 @@
 import React from 'react'
 import 'isomorphic-fetch'
-// import Link from 'next/link'
 
 const url = (param) => {
   return `https://blooming-gorge-88603.herokuapp.com/?username=Uli bot&text=udiscover: ${param}&emoji=:partyparrot`
