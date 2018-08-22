@@ -1,11 +1,15 @@
 import React from 'react'
 import Head from 'next/head'
+import Router from 'next/router'
+import * as gtag from '../lib/gtag'
+
+// Should really be in a hoc
+Router.onRouteChangeStart = url => {
+  gtag.pageview(url)
+}
 
 function layoutHoc (Child) {
   return class WrappedComponent extends React.Component {
-    static getInitialProps (context) {
-      return Child.getInitialProps(context)
-    }
     render () {
       return (
         <div>

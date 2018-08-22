@@ -4,8 +4,9 @@ import Links from './links'
 import 'isomorphic-fetch'
 
 export default class Bio extends React.PureComponent {
-  _navigateToInstagram () {
-    fetch(`https://blooming-gorge-88603.herokuapp.com/?username=Uli bot&text=udiscover: instagram&emoji=:partyparrot`)
+  _navigateToInstagram = () => {
+    console.log("sup",this.props)
+    //fetch(`https://blooming-gorge-88603.herokuapp.com/?username=Uli bot&text=udiscover: instagram&emoji=:partyparrot`)
   }
 
   render () {
