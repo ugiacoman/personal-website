@@ -6,7 +6,7 @@ import * as gtag from '../lib/gtag'
 
 export default class Bio extends React.PureComponent {
   _navigateToInstagram = () => {
-    //fetch(`https://blooming-gorge-88603.herokuapp.com/?username=Uli bot&text=udiscover: instagram&emoji=:partyparrot`)
+    gtag.logEvent("instagram")
   }
 
   render () {
@@ -16,7 +16,7 @@ export default class Bio extends React.PureComponent {
           <strong> Ulises </strong> likes to build :) Follow on
           <a
             onClick={this._navigateToInstagram}
-            href={'//www.instagram.com/ulisantosg/'}
+            href={'https://www.instagram.com/ulisantosg/'}
             target={'_blank'}
           >
             <TiSocialInstagram />

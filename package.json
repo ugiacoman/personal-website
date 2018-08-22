@@ -8,7 +8,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js $PORT"
+    "start": "NODE_ENV=production node server.js $PORT",
+    "static-build": "next build && next export"
   },
   "dependencies": {
     "markdown-in-js": "^1.1.3",

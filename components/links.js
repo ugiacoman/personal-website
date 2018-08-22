@@ -15,7 +15,7 @@ export default class Links extends React.PureComponent {
       <div>
         <a
           onClick={this._logGithub}
-          href={'//github.com/ugiacoman'}
+          href={'https://github.com/ugiacoman'}
           target='_blank'
         >
           Github
@@ -23,7 +23,7 @@ export default class Links extends React.PureComponent {
         {` | `}
         <a
           onClick={this._logMedium}
-          href={'//medium.com/@ugiacoman'}
+          href={'https://medium.com/@ugiacoman'}
           target='_blank'
         >
           Medium
