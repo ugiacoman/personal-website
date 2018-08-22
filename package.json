@@ -9,7 +9,7 @@
     "dev": "next",
     "build": "next build",
     "start": "NODE_ENV=production node server.js $PORT",
-    "static-build": "next build && next export"
+    "static-build": "next build && next export -o ./docs"
   },
   "dependencies": {
     "markdown-in-js": "^1.1.3",
