@@ -1,10 +1,15 @@
 import React from 'react'
 import LayoutHoc from '../components/layoutHoc'
 import Bio from '../components/bio'
+import Router from 'next/router'
+import * as gtag from '../lib/gtag'
 
 class Index extends React.Component {
+  componentDidMount() {
+      gtag.pageview(Router.asPath)
+  }
+
   render () {
-    console.log(this.props)
     return (
       <div className={'container'}>
         <div>
